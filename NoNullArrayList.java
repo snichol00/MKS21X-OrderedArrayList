@@ -28,7 +28,7 @@ public class NoNullArrayList<T> extends ArrayList<T>{
   }
 
   public T set(int idx, T str){
-    T old = str;
+    T old = this.get(idx);
     if (str == null){
       throw new IllegalArgumentException();
     }
