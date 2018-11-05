@@ -9,7 +9,7 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
 
   public boolean add(T str){
     int num = 0;
-    for (int x = 0; x < size(); x++){
+    for (int x = 0; x < this.size(); x++){
       if (str.compareTo(get(x)) >= 0){
         num = x + 1;
       }
@@ -19,16 +19,13 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public void add(int idx, T str){
-    if (this.get(idx - 1).compareTo(str) <= 0 && this.get(idx + 1).compareTo(str) >= 0){
-      super.add(idx, str);
-    }
+    add(str);
   }
 
   public T set(int idx, T str){
     T old = this.get(idx);
-    if (this.get(idx - 1).compareTo(str) <= 0 && this.get(idx + 1).compareTo(str) >= 0){
-      super.set(idx, str);
-    }
+    this.remove(idx);
+    this.add(idx, str);
     return old;
   }
 }
