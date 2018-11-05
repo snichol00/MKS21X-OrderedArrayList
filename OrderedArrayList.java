@@ -19,7 +19,9 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public void add(int idx, T str){
-
+    if (this.get(idx - 1).compareTo(str) <= 0 && this.get(idx + 1).compareTo(str) >= 0){
+      super.add(idx, str);
+    }
   }
 
   public T set(int idx, T str){
